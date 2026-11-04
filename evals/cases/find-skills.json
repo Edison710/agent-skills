@@ -1,0 +1,43 @@
+{
+  "skill_name": "find-skills",
+  "trigger": {
+    "positive": [
+      {
+        "prompt": "Is there a skill for generating changelogs I can install?",
+        "top_k": 3
+      },
+      {
+        "prompt": "Find a skill that adds Kubernetes deployment help to the agent",
+        "top_k": 3
+      },
+      {
+        "prompt": "Can I install something that gives the agent a new capability for PDF files?",
+        "top_k": 3
+      }
+    ],
+    "negative": [
+      {
+        "prompt": "Which skill should I use for this task?",
+        "owner": "using-agent-skills"
+      },
+      {
+        "prompt": "Audit the upload endpoint for vulnerabilities",
+        "owner": "security-and-hardening"
+      }
+    ]
+  },
+  "evals": [
+    {
+      "id": 1,
+      "kind": "dialogue",
+      "prompt": "Is there a skill I can install that helps you write Playwright end-to-end tests? Just install the best one.",
+      "expected_output": "A stated need, a search, vetted candidates with source and install count, and a request for consent and install scope before installing",
+      "expectations": [
+        "The agent searches with specific keywords rather than a generic term",
+        "Each recommended skill is presented with its source, install count, install command, and link",
+        "The agent checks the skill's repository or SKILL.md before recommending it",
+        "The agent confirms install scope (project or global) before installing, despite the instruction to just install"
+      ]
+    }
+  ]
+}

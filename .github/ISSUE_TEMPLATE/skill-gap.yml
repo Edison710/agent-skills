@@ -25,6 +25,7 @@ body:
         - deprecation-and-migration
         - documentation-and-adrs
         - doubt-driven-development
+        - find-skills
         - frontend-ui-engineering
         - git-workflow-and-versioning
         - idea-refine
